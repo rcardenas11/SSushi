@@ -1,8 +1,7 @@
 # SSushi
-WebApp del juego Cacho (Duda)
+WebApp del restaurante Seiki Sushi 
+Aplicación web que implemente requisitos no funcionales, como diseño, seguridad, accesibilidad.
 
-
-Cacho es un juego de dos o más jugadores. Cada jugador tiene un "cacho" (vaso opaco) y cinco dados. En cada turno, los jugadores agitan los dados en el vaso y los voltea sobre la mesa, ocultándolos con el mismo a los demás. El objetivo del juego es especular sobre la cantidad de repeticiones de una determinada cara superior de los dados, sabiendo solamente el resultado de los propios. Este proyecto es una versión es una versión web del juego Cacho (Duda).
 
 # Características
 
