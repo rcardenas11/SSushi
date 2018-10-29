@@ -3,18 +3,35 @@ import PropTypes from "prop-types";
 import {Meteor} from "meteor/meteor";
 import {withTracker} from "meteor/react-meteor-data";
 import { HTTP } from 'meteor/http';
+import  Seiki  from "./Seiki";
+import  Intro  from "./Intro";
 class App extends Component {
 
-  constructor(props){
+ constructor(props){
     super(props);
     this.state = {
+      carga: <Intro/>
       
     };
 
+    this.toggleEstadoSeiki = this.toggleEstadoSeiki.bind(this);
+    this.toggleEstadoInicio = this.toggleEstadoInicio.bind(this);
+ }
+ handleShow() {
+    if (!this.state.showForm)
+      this.setState({ showForm: true })
+    else
+      this.setState({ showForm: false })
+ }
+ toggleEstadoSeiki() {
+   this.setState({ estado: "Seiki", carga: <Seiki/> })
+ }
+  toggleEstadoInicio() {
+   this.setState({ estado: "Intro", carga: <Intro/> })
  }
   render() {
     return (
-<div> 
+    <div> 
         
       <nav className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
             <div className="container">
@@ -25,55 +42,24 @@ class App extends Component {
               <div className="collapse navbar-collapse" id="navbarResponsive">
                 <ul className="navbar-nav ml-auto">
                   <li className="nav-item active">
-                    <a className="nav-link" href="#">Home
+                    <a className="nav-link" href="#" onClick={this.toggleEstadoInicio} >Incio
                       <span className="sr-only">(current)</span>
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">Menu</a>
+                    <a className="nav-link" href="#" id="menu">Menu</a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">Quién es Seiki</a>
+                    <a className="nav-link" href="#" id="seiki" onClick={this.toggleEstadoSeiki}>Quién es Seiki</a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#">Contáctenos</a>
+                    <a className="nav-link" href="#" id="contacto">Reservas</a>
                   </li>
                 </ul>
               </div>
             </div>
           </nav>
-
-          {/*<!-- Header with Background Image -->*/}
-          <header className="business-header">
-            <div className="container">
-              <div className="row">
-                <div className="col-lg-12">
-                  <h1 id="princ" className="display-3 text-center text-white mt-4">Seiki Sushi</h1>
-                </div>
-                <div className="col-lg-12 text-center">
-                  <button type="button" class="btn btn-outline-light">Únetenos y realiza tu Reserva</button>
-                </div>
-              </div>
-            </div>
-          </header>
-
-          {/*<!-- Page Content -->*/}
-          <div className="container">
-
-            <div className="row">
-              <div className="col-sm-8">
-                <h2 id="princ" className="mt-4">¿Qué se opina de nosotros?</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>
-              </div>
-              <div className="col-sm-4">
-                <h2 id="princ" className="mt-4">Contact Us</h2>
-                
-              </div>
-            </div>
-          </div>
-         {/* <!-- /.container -->*/}
-
+          <div>{this.state.carga}</div>
          {/* <!-- Footer -->*/}
           <footer class="py-5 bg-dark">
             <div class="container">
