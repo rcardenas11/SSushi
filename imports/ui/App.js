@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import PropTypes from "prop-types";
 import {Meteor} from "meteor/meteor";
 import {withTracker} from "meteor/react-meteor-data";
+import { HTTP } from 'meteor/http';
 class App extends Component {
 
   constructor(props){
@@ -11,7 +12,6 @@ class App extends Component {
     };
 
  }
-
   render() {
     return (
 <div> 
@@ -67,53 +67,10 @@ class App extends Component {
                 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>
               </div>
               <div className="col-sm-4">
-                <h2 id="princ" classNamev="mt-4">Contact Us</h2>
+                <h2 id="princ" className="mt-4">Contact Us</h2>
                 
               </div>
             </div>
-            {/*<!-- /.row -->*/}
-
-            <div className="row">
-              <div class="col-sm-4 my-4">
-                <div class="card">
-                  <img class="card-img-top" src="http://placehold.it/300x200" alt=""/>
-                  <div class="card-body">
-                    <h4 id="princ" class="card-title">Card title</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus.</p>
-                  </div>
-                  <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Find Out More!</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-4 my-4">
-                <div class="card">
-                  <img class="card-img-top" src="http://placehold.it/300x200" alt=""/>
-                  <div class="card-body">
-                    <h4 id="princ"  class="card-title">Card title</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque sequi doloribus totam ut praesentium aut.</p>
-                  </div>
-                  <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Find Out More!</a>
-                  </div>
-                </div>
-              </div>
-              <div class="col-sm-4 my-4">
-                <div class="card">
-                  <img class="card-img-top" src="http://placehold.it/300x200" alt=""/>
-                  <div class="card-body">
-                    <h4  id="princ" class="card-title">Card title</h4>
-                    <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sapiente esse necessitatibus neque.</p>
-                  </div>
-                  <div class="card-footer">
-                    <a href="#" class="btn btn-primary">Find Out More!</a>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-            {/*<!-- /.row -->*/}
-
           </div>
          {/* <!-- /.container -->*/}
 
