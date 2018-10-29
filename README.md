@@ -1,6 +1,6 @@
 # SSushi
-WebApp del restaurante Seiki Sushi 
-Aplicación web que implemente requisitos no funcionales, como diseño, seguridad, accesibilidad.
+WebApp del restaurante Seiki Sushi. 
+Aplicación web que implementa requisitos no funcionales, como diseño, seguridad, accesibilidad.
 
 
 # Características
