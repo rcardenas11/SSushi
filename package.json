@@ -11,7 +11,9 @@
     "@babel/runtime": "^7.0.0",
     "google-map-react": "^1.0.9",
     "meteor-node-stubs": "^0.4.1",
+    "moment": "^2.22.2",
     "react": "^16.6.0",
+    "react-datepicker": "^1.7.0",
     "react-dom": "^16.6.0"
   },
   "meteor": {
