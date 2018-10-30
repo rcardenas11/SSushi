@@ -8,3 +8,32 @@ if(Meteor.isServer){
     return Menu.find({});
   });
 }
+
+Meteor.methods(
+  {
+    "producto.add"(name,descrip,tipo,precio){
+
+
+      Menu.upsert({creador},{
+        name,
+        descrip,
+        tipo,
+        precio
+
+      });
+
+    },
+
+    "producto.del"(name){
+
+      const part = Menu.findOne({name});
+
+      Menu.remove(part);
+
+ 
+    }
+
+    
+
+  }
+);

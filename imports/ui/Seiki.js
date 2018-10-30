@@ -21,14 +21,13 @@ class Seiki extends Component {
         </div>
 
         <div class="col-md-6">
-          <h3 class="my-3">Project Description</h3>
           <p>Seiki Yamada nació en el sur de Japón en la provincia de Fukuoka, en la isla de Kyushu, donde transcurrió su juventud. Se graduó en la escuela de culinaria Nakamura a la edad de 19 años. Luego comenzó a trabajar en un restaurante de Sushi en Tokio, en la famosa área de Tsukiji donde se convirtió en Chef de Sushi.
 
-          Luego de varios años en Tokio regresó a su natal Kyushu para iniciar una especialización en Decoración de Alimentos en el Instituto de la Moda de Fukuoka.
+          Luego de varios años en Tokio regresó a su natal Kyushu para iniciar una especialización en Decoración de Alimentos en el Instituto de la Moda de Fukuoka.</p><p>
 
           Tras graduarse comenzó a publicar sus recetas en la revista japonesa de cocina Clim y en televisión en el Food Channel de Japón.</p>
 
-          <p>Las recetas de Seiki eran para entonces exclusivas, con ingredientes de todo el mundo para el mercado japonés, platos como perros calientes americanos con “Kimpira” japonés, tacos mexicanos con pollo teriyaki o sashimi de salmón con pasta de albahaca italiana; creando un estilo muy casual y delicado para el paladar japonés.
+          <p>Las recetas de Seiki eran para entonces exclusivas, con ingredientes de todo el mundo para el mercado japonés, platos como perros calientes americanos con “Kimpira” japonés, tacos mexicanos con pollo teriyaki o sashimi de salmón con pasta de albahaca italiana; creando un estilo muy casual y delicado para el paladar japonés.</p><p>
 
           Decidió entonces buscar nuevos horizontes y se trasladó al área de Nueva York para mejorar su destreza en decoración de alimentos, tomó clases en Parsons New School mientras trabajaba para un periódico gratuito japonés de la ciudad que publicaba sus recetas.
 

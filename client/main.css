@@ -38,3 +38,7 @@ nav.navbar.navbar-expand-lg.navbar-dark.bg-dark.fixed-top{
   background:transparent;
   background-color: #DA1E2A!important;
 }
+
+a.nav-item.nav-link.text-black{
+  color: black;
+}

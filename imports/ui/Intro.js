@@ -3,15 +3,38 @@ import PropTypes from "prop-types";
 import {Meteor} from "meteor/meteor";
 import {withTracker} from "meteor/react-meteor-data";
 import { HTTP } from 'meteor/http';
+import AccountsUIWrapper from "./AccountsUIWrapper.js";
 class Intro extends Component {
 
  constructor(props){
     super(props);
-    this.state = {
-      
+    this.state = { 
     };
 
 }
+
+  initMap = () => {
+     var myLatLng = {lat: 4.643861, lng: -74.061122};
+      var  map = new window.google.maps.Map(document.getElementById('map'), {
+          center: {lat: 4.643861, lng: -74.061122},
+          zoom: 16
+        });
+
+      var marker = new google.maps.Marker({
+          position: myLatLng,
+          map: map,
+          title: 'Seiki Sushi!'
+        });
+      }
+
+    renderMap =() =>{
+      loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDWY4j-pCc6H72iYgTeghHDdDOZh9L7h9U&callback=initMap")
+      window.initMap = this.initMap
+    }
+
+ componentDidMount(){
+  this.renderMap()
+ }
   render() {
     return (
     <div> 
@@ -27,8 +50,7 @@ class Intro extends Component {
                   <button type="button" class="btn btn-outline-light">Únetenos y realiza tu Reserva</button>
                   <br/>
                   <br/>
-                  <p class="text-white">¿Ya eres parte de la Familia?</p>
-                  <button type="button" class="btn btn-outline-light">Ingresa</button>
+                  <p class="text-white">¿Qué esperas para ser parte de la Familia Seiki Sushi? </p>
                 </div>
               </div>
             </div>
@@ -40,14 +62,17 @@ class Intro extends Component {
             <div className="row">
               <div className="col-sm-8">
                 <h2 id="princ" className="mt-4">¿Qué se opina de nosotros?</h2>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A deserunt neque tempore recusandae animi soluta quasi? Asperiores rem dolore eaque vel, porro, soluta unde debitis aliquam laboriosam. Repellat explicabo, maiores!</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Omnis optio neque consectetur consequatur magni in nisi, natus beatae quidem quam odit commodi ducimus totam eum, alias, adipisci nesciunt voluptate. Voluptatum.</p>
               </div>
               <div className="col-sm-4">
-                <h2 id="princ" className="mt-4">¿Dónde estamos?</h2>
-                
+                <h2 id="princ" className="mt-4">¿Dónde estamos?</h2> 
+                <div id="map" style={{ height: '50vh', width: '100%' }} ></div> 
+                <blockquote class="blockquote text-center">
+                   <p class="mb-0"> <b>Dirección:</b> Carrera 6 # 58-43</p>
+                </blockquote>            
               </div>
+              
             </div>
+            
           </div>
          {/* <!-- /.container -->*/}
 </div>
@@ -55,4 +80,12 @@ class Intro extends Component {
   }
 }
 
+function loadScript(url){
+  var index = window.document.getElementsByTagName('script')[0]
+  var script = window.document.createElement("script")
+  script.src = url
+  script.async = true
+  script.defer = true
+  index.parentNode.insertBefore(script, index)
+}
 export default Intro;

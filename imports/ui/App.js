@@ -5,29 +5,39 @@ import {withTracker} from "meteor/react-meteor-data";
 import { HTTP } from 'meteor/http';
 import  Seiki  from "./Seiki";
 import  Intro  from "./Intro";
+import  Reservas  from "./Reservas";
+import  Menu  from "./Menu";
+import AccountsUIWrapper from "./AccountsUIWrapper.js";
 class App extends Component {
 
  constructor(props){
     super(props);
     this.state = {
-      carga: <Intro/>
+      carga: <Intro/>,
+      login: false
       
     };
 
     this.toggleEstadoSeiki = this.toggleEstadoSeiki.bind(this);
     this.toggleEstadoInicio = this.toggleEstadoInicio.bind(this);
+    this.toggleEstadoReservas = this.toggleEstadoReservas.bind(this);
+    this.toggleEstadoMenu = this.toggleEstadoMenu.bind(this);
  }
+
  handleShow() {
-    if (!this.state.showForm)
-      this.setState({ showForm: true })
-    else
-      this.setState({ showForm: false })
+      this.setState({ login: true })
  }
  toggleEstadoSeiki() {
    this.setState({ estado: "Seiki", carga: <Seiki/> })
  }
   toggleEstadoInicio() {
    this.setState({ estado: "Intro", carga: <Intro/> })
+ }
+  toggleEstadoMenu() {
+   this.setState({ estado: "Menu", carga: <Menu/> })
+ }
+  toggleEstadoReservas() {
+   this.setState({ estado: "Reservas", carga: <Reservas/> })
  }
   render() {
     return (
@@ -41,26 +51,30 @@ class App extends Component {
               </button>
               <div className="collapse navbar-collapse" id="navbarResponsive">
                 <ul className="navbar-nav ml-auto">
+                  <li className="nav-item">
+                    <a className="nav-link" href="#" id="menu"><AccountsUIWrapper state="signIn"/></a>
+                  </li>
                   <li className="nav-item active">
                     <a className="nav-link" href="#" onClick={this.toggleEstadoInicio} >Incio
                       <span className="sr-only">(current)</span>
                     </a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#" id="menu">Menu</a>
+                    <a className="nav-link" href="#" id="menu" onClick={this.toggleEstadoMenu}>Menu</a>
                   </li>
                   <li className="nav-item">
                     <a className="nav-link" href="#" id="seiki" onClick={this.toggleEstadoSeiki}>Quién es Seiki</a>
                   </li>
                   <li className="nav-item">
-                    <a className="nav-link" href="#" id="contacto">Reservas</a>
+                  <a className="nav-link" href="#" id="reservas" onClick={this.toggleEstadoReservas}>Reservas</a>  
                   </li>
                 </ul>
               </div>
             </div>
           </nav>
           <div>{this.state.carga}</div>
-         {/* <!-- Footer -->*/}
+          <br/>
+          <br/>
           <footer class="py-5 bg-dark">
             <div class="container">
               <p class="m-0 text-center text-white">Copyright &copy; Your Website 2018</p>
@@ -71,5 +85,6 @@ class App extends Component {
       );
   }
 }
+
 
 export default App;
