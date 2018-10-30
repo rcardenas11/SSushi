@@ -92,7 +92,42 @@ handleChange(date) {
         <br/>
         <br/>
       </div> ): (
-      <div class="container">
+      <div></div>
+)}
+
+      {Meteor.user() && Meteor.user().username === "Admin" ? (  <div>
+        <br/>
+        <h2> Bienvenid@ {Meteor.user().username} </h2>
+        <br/>
+        <br/>
+        <div className="row">
+          <div className="col">
+            <h2>Reservas pendientes</h2>
+            <hr/>
+          </div>
+          <div className="col">
+            <h2>Historial de Reservas</h2>
+            <hr/>
+          </div>
+        </div>
+        <div className="row">
+          <div className="col">
+            <br/>
+  
+          </div>
+          <div className="col">
+            
+          </div>
+        </div>
+        <br/>
+       
+        <br/>
+        <br/>
+        <br/>
+        <br/>
+       </div>):( <div></div>)}
+
+        {!Meteor.user()   ? (<div class="container">
       <div class="row">
         <div class="col-lg-12 text-center">
           <h1 class="mt-5">¿No has iniciado sesión?</h1>
@@ -100,8 +135,8 @@ handleChange(date) {
 
         </div>
       </div>
-    </div>
-)}
+    </div>):(null)}
+
        </div>
     
       );
