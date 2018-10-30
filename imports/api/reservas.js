@@ -8,3 +8,32 @@ if(Meteor.isServer){
     return Reservas.find({});
   });
 }
+
+Meteor.methods(
+  {
+    "reserva.add"(name,fecha,numPersonas){
+
+
+      Reservas.upsert({creador},{
+        name,
+        fecha,
+        numPersonas,
+        estado: false
+
+      });
+
+    },
+
+    "reserva.del"(name){
+
+      const part = Menu.findOne({name});
+
+      Reservas.remove(part);
+
+ 
+    }
+
+    
+
+  }
+);

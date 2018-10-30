@@ -19,7 +19,7 @@ agregarProducto(){
   const descrp = document.getElementById("descrpProd").value;
   const valor = document.getElementById("nombreProd").value;
   const tipo = document.getElementById("tipoProd").value;
-  Meteor.call("producto.add",name,descrp,tipo,valor);
+  Meteor.call("producto.add",name,descrp,"a",valor);
 }
 
 eliminarProducto(){
@@ -36,51 +36,58 @@ editarProducto(){
   const valor = document.getElementById("nombreProd").value;
   const tipo = document.getElementById("tipoProd").value;
 
-   Meteor.call("producto.add",name,descrp,tipo,valor);
+   Meteor.call("producto.add",name,descrp,"a",valor);
 }
 
   render() {
     return (
-    <div> 
-
+    <div className="container"> 
+      <br/>
       {Meteor.user() && Meteor.user().username === "Admin" ? (
-           <div className="row">
-            <div className="col">
+           
               <div class="input-group mb-3">
               {/*Aca van las opciones*/}
                 <div className="row">
-                 <div className="col">
+                 <div className="col-sm">
                    <br/>
-                   <button class="btn btn-outline-secondary btn-block" type="button" onClick={this.dudar}>Dudar</button>
+                   <button class="btn btn-outline-danger btn-block" type="button" onClick={this.agregarProducto}>Agregar Producto</button>
                    <br/>
-                   <button class="btn btn-outline-secondary btn-block" type="button" onClick={this.plantar}>Plantar</button>
+                   <button class="btn btn-outline-danger btn-block" type="button" onClick={this.eliminarProducto}>Eliminar Prodcuto</button>
                  </div>
                  <div className="col">
-                    <label >¡Has una apuesta!</label>
+                    <label >¡Agregar o Eliminar productos del menu!</label>
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon3">Cantidad:</span>
+                        <span class="input-group-text" id="basic-addon3">Nombre:</span>
                       </div>
-                      <input type="text" class="form-control" id="cantidad" aria-describedby="basic-addon3"/>
+                      <input type="text" class="form-control" id="nombreProd" aria-describedby="basic-addon3"/>
                     </div>  
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
-                        <span class="input-group-text" id="basic-addon3">Denominación:</span>
+                        <span class="input-group-text" id="basic-addon3">Desripcion Del Producto:</span>
                       </div>
-                      <input type="text" class="form-control" id="denomi" aria-describedby="basic-addon3"/>
-                    </div>  
-                     <button class="btn btn-outline-secondary" type="button" onClick={this.acualizarApuesta}>Apostar!</button>
+                      <textarea rows="4" cols="50" name="comment" form="usrform"/>
+                    </div> 
+                    <div class="input-group mb-3">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text" id="basic-addon3">Valor:</span>
+                      </div>
+                      <input type="text" class="form-control" id="nombreProd" aria-describedby="basic-addon3"/>
+                    </div> 
                  </div>
-                </div>
+        
               </div>
-            </div>
             <div className="col">
             </div>
           </div>
 
         ): (<br/>)}
-          <div class="carousel-item">
-            <img src="..." alt="plato de seiki"/>
+          <div class="item carousel-item">
+            <img src="https://www.thegalmont.com/files/hotel/hotel-a/08-generic/galmont-hotel-sushi-bar-01.jpg" alt="plato de seiki"/>
+            <div class="carousel-caption d-none d-md-block">
+              <h5>p.name</h5>
+              <p>p.descrip</p>
+            </div>
             { this.props.productos.map((p,i) =>
             <div key={i} class="carousel-caption d-none d-md-block">
               <h5>p.name</h5>
@@ -90,7 +97,7 @@ editarProducto(){
           </div>      
             
          
-        )}
+        
     
     </div>
       );
