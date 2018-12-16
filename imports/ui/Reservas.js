@@ -4,6 +4,7 @@ import {Meteor} from "meteor/meteor";
 import {withTracker} from "meteor/react-meteor-data";
 import DatePicker from 'react-datepicker';
 import moment from 'moment';
+import Layout from './Layout';
 
 // CSS Modules, react-datepicker-cssmodules.css
 import 'react-datepicker/dist/react-datepicker.css';
@@ -16,13 +17,21 @@ class Reservas extends Component {
      startDate: moment() 
     };
   this.handleChange = this.handleChange.bind(this);
+  this.hacerReserva = this.hacerReserva.bind(this);
 }
 
 handleChange(date) {
     this.setState({
       startDate: date
     });
+  //  console.log(this.state.startDate._d);
   }
+
+hacerReserva(){
+  const numeroPersonas = document.getElementById("npersonas").value;
+  let code =  Math.floor((Math.random() * 1000) + 1);
+  Meteor.call("reserva.add",code,this.state.startDate._d,numeroPersonas);
+}
 
   render() {
     return (
@@ -55,7 +64,7 @@ handleChange(date) {
                       <div class="input-group-prepend">
                         <span class="input-group-text" id="basic-addon3">Numero de Personas:</span>
                       </div>
-                      <input type="text" class="form-control" id="nombreProd" aria-describedby="basic-addon3"/>
+                      <input type="text" class="form-control" id="npersonas" aria-describedby="basic-addon3"/>
                     </div>
                     <div class="input-group mb-3">
                       <div class="input-group-prepend">
@@ -71,7 +80,7 @@ handleChange(date) {
             </div>
           </div>
           <div className="col">
-            
+              <Layout />
           </div>
         </div>
         <br/>
@@ -81,7 +90,7 @@ handleChange(date) {
               <p>Una vez enviada la solicitud para una reserva, tendrás que esperar a que el administrador del restaurante la acepte. En tu historial de reservas podrás ver si la reserva fue aceptada o rechazada.</p>
               <br/>
               <br/>
-                <button class="btn btn-outline-danger" type="button" >Realizar reserva </button>
+                <button class="btn btn-outline-danger" type="button" onClick={this.hacerReserva}>Realizar reserva </button>
             </div>
           </div>
           <div className="col">
@@ -113,7 +122,7 @@ handleChange(date) {
         <div className="row">
           <div className="col">
             <br/>
-  
+                <Layout />
           </div>
           <div className="col">
             

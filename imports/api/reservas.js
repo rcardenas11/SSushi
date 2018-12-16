@@ -13,23 +13,35 @@ Meteor.methods(
   {
     "reserva.add"(name,fecha,numPersonas){
 
+      const creador = Meteor.user().username;
+      let id = creador + name;
 
-      Reservas.upsert({creador},{
-        name,
+      Reservas.upsert({name},{
+        id,
         fecha,
         numPersonas,
-        estado: false
+        estado: false,
+        creador
 
       });
 
     },
 
-    "reserva.del"(name){
+    "reserva.del"(id){
 
-      const part = Menu.findOne({name});
+      const part = Menu.findOne({id});
 
       Reservas.remove(part);
 
+ 
+    },
+      
+      "reserva.aceptar"(id){
+
+      Reservas.upsert({id},{
+        estado: true
+
+      });
  
     }
 
