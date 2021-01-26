@@ -31,6 +31,7 @@ header.business-header{
   width: 100%;
   height: 100%;
   background: url(/images/seikiBanner.png) center center no-repeat;
+  /*Camilo: Sería mejor poner esta imágen desde el código en html para que tenga su atributo alt para accesibilidad */
   background-size: cover
 }
 
