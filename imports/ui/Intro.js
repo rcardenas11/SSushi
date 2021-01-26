@@ -29,6 +29,7 @@ class Intro extends Component {
 
     renderMap =() =>{
       loadScript("https://maps.googleapis.com/maps/api/js?key=AIzaSyDWY4j-pCc6H72iYgTeghHDdDOZh9L7h9U&callback=initMap")
+     /* Camilo: No es bueno dejar esa api key quemada acá, es mejor sacarla a un archivo aparte con gitignore */
       window.initMap = this.initMap
     }
 
