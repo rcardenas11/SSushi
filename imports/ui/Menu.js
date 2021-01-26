@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import PropTypes from "prop-types";
 import {Meteor} from "meteor/meteor";
 import {withTracker} from "meteor/react-meteor-data";
+/* Camilo: no está utilizando proptypes ni withTracker entonces no necesita importarlos */
 import Producto from './Producto';
 class Menu extends Component {
 
