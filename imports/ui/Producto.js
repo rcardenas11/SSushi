@@ -38,12 +38,15 @@ editarProducto(){
 
    Meteor.call("producto.add",name,descrp,"a",valor);
 }
+ 
+ /* Camilo: Debería darle feedback al usuario haciendole saber que su operación (agregar o editar o eliminar) fue existosa */
 
   render() {
     return (
     <div className="container"> 
       <br/>
       {Meteor.user() && Meteor.user().username === "Admin" ? (
+     /* Camilo: Tremendo machetazo para manejar tipo de cuenta administrador jajaja */
            
               <div class="input-group mb-3">
               {/*Aca van las opciones*/}
